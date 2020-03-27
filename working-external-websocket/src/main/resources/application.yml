@@ -1,0 +1,17 @@
+server:
+  port: 8870
+
+spring:
+  cloud:
+    gateway:
+      routes:
+        - id: external-websocket
+          uri: ws://echo.websocket.org
+          predicates:
+            - Path=/websocket/echo
+          filters:
+            - StripPrefix=2
+logging:
+  level:
+    org.springframework.web: trace
+    reactor.netty: trace
