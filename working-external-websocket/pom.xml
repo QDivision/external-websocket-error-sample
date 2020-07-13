@@ -12,6 +12,8 @@
   <artifactId>working-external-websocket</artifactId>
   <version>0.0.1-SNAPSHOT</version>
   <name>working-external-websocket</name>
+  <description>Demo project for Spring Boot</description>
+
   <dependencies>
     <dependency>
       <groupId>org.jetbrains.kotlin</groupId>
@@ -22,15 +24,34 @@
       <artifactId>kotlin-stdlib-jdk8</artifactId>
     </dependency>
 
+    <dependency>
+      <groupId>org.springframework.cloud</groupId>
+      <artifactId>spring-cloud-starter-gateway</artifactId>
+      <exclusions>
+        <exclusion>
+          <groupId>org.springframework.cloud</groupId>
+          <artifactId>spring-cloud-gateway-core</artifactId>
+        </exclusion>
+        <exclusion>
+          <groupId>io.projectreactor.netty</groupId>
+          <artifactId>reactor-netty</artifactId>
+        </exclusion>
+      </exclusions>
+    </dependency>
+
     <!--    I set this up by publishing the the artifact to -->
     <!--    my local maven repository under this version number-->
     <!--    which allowed me to test this-->
     <dependency>
       <groupId>org.springframework.cloud</groupId>
-      <artifactId>spring-cloud-starter-gateway</artifactId>
-      <version>version.withfixes</version>
+      <artifactId>spring-cloud-gateway-core</artifactId>
+      <version>2.2.4.BUILD-SNAPSHOT</version>
     </dependency>
-
+    <dependency>
+      <groupId>io.projectreactor.netty</groupId>
+      <artifactId>reactor-netty</artifactId>
+      <version>0.9.6.RELEASE</version>
+    </dependency>
     <dependency>
       <groupId>org.springframework.boot</groupId>
       <artifactId>spring-boot-starter-test</artifactId>
@@ -43,8 +64,6 @@
       </exclusions>
     </dependency>
   </dependencies>
-
-  <description>Demo project for Spring Boot</description>
 
   <properties>
     <java.version>11</java.version>
